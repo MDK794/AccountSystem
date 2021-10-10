@@ -15,20 +15,27 @@ public class AccountType implements Serializable {
 
 
     private Long accountTypeId;
-    private Long mnemonic;
-    private Long accountTypeName;
+    private String mnemonic;
+    private String accountTypeName;
     private LocalDate creationDate;
     private Set<AccountTransaction> accountTransactions;
 
     public AccountType() {
+
     }
-    public AccountType(Long accountTypeId, Long mnemonic, Long accountTypeName, LocalDate creationDate) {
+    public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
         this.accountTypeId = accountTypeId;
         this.mnemonic = mnemonic;
         this.accountTypeName = accountTypeName;
         this.creationDate = creationDate;
 
     }
+    public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate) {
+    }
+
+
+
+
     @Id
     @SequenceGenerator(name = "MORNE_GENERIC_SEQ", sequenceName = "MORNE.MORNE_GENERIC_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MORNE_GENERIC_SEQ")
@@ -42,20 +49,20 @@ public class AccountType implements Serializable {
     }
 
     @Column(name = "MNEMONIC")
-    public Long getMnemonic() {
+    public String getMnemonic() {
         return mnemonic;
     }
 
-    public void setMnemonic(Long mnemonic) {
+    public void setMnemonic(String mnemonic) {
         this.mnemonic = mnemonic;
     }
 
     @Column(name = "ACCOUNT_TYPE_NAME")
-    public Long getAccountTypeName() {
+    public String getAccountTypeName() {
         return accountTypeName;
     }
 
-    public void setAccountTypeName(Long accountTypeName) {
+    public void setAccountTypeName(String accountTypeName) {
         this.accountTypeName = accountTypeName;
     }
 
